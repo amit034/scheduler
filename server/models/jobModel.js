@@ -2,13 +2,8 @@
 const _ = require('lodash');
 const path = require('path');
 const jsonfile = require('jsonfile');
-const filePath = path.join(__dirname, '..', 'db', 'db.json');
+const filePath = path.join(__dirname, '..', 'db', 'jobs_table.json');
 
-// const attributes = {
-//     id: {type: number, required: true},
-//     period: {type: number, required: true},
-//     priority: {type: number, required: false},
-// };
 const STATUS = {
     NEW: 0,
     RUNNING: 1,
@@ -95,12 +90,4 @@ module.exports = {
             return _.reject(jobs, (job) => _.includes([STATUS.DELETED, STATUS.COMPLETED], job.status));
         });
     }
-    // nextToRun(){
-    //     return module.exports.findAll()
-    //     .then((data) => {
-    //         const newJobs = _.filter(data, {status: STATUS.NEW});
-    //         const sorted = _.orderBy(newJobs, ['priority'], ['desc']);
-    //         return _.first(sorted);
-    //     });
-    // }
 };

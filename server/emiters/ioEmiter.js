@@ -2,7 +2,7 @@
 module.exports = function (io) {
     return {
         error(err) {
-            io.emit('error', err);
+            return io.emit('error', err);
         },
         jobsLoaded(jobs) {
             return io.emit('jobsLoaded', jobs);
